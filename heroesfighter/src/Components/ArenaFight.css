@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+}
+
+.arena_box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card_versus {
+    display : flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.versus_text {
+    align-self: center;
+    font-size: 6vw;
+    margin: 5%;
+}
