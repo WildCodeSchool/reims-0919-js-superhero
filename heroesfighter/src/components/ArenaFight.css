@@ -1,31 +1,8 @@
-* {
-    margin: 0;
-}
-
-.arena_box {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.card_versus {
-    display : flex;
-    justify-content: center;
-    flex-direction: row;
-}
-
-.versus_text {
-    align-self: center;
-    font-size: 6vw;
-    margin: 5%;
-}
-
 .button_box{
     display: flex;
     align-content: center;
     justify-content: center;
 }
-
 .bonusButtonLightning {
     border-radius: 50%;
     background-image: url('https://image.noelshack.com/fichiers/2019/43/3/1571840342-emoji-foudre.png');
