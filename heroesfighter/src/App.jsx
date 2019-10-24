@@ -1,11 +1,11 @@
 import React from 'react';
-import Card from './component/Card'
 import './App.css';
+import ArenaFight from './Components/ArenaFight';
 
 function App() {
   return (
     <div className="App">
-      <Card/>  
+      <ArenaFight />
     </div>
   );
 }
