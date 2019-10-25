@@ -7,6 +7,7 @@
 .Cards{
     width:600px;
     height: 900px;
+    padding: 1rem;
     border: 2px solid black;
     display: flex flex-start;
     flex-direction: column;
@@ -33,31 +34,45 @@
 } 
 .Power{
     width: 25%;
-    background-image: url('https://image.flaticon.com/icons/png/512/94/94085.png');
 }
+
+.Power img{
+    width:50px;
+}
+
 .Middle{
     display: flex;
 
 
 }
+
 .Attributs{
     display: flex;
     width: 28%;
     justify-content: center;
    
 }
+
+.Attributs img{
+    width : 3rem;
+}
+
 .Attributs ul{
     display: flex;
     flex-direction: column;
     list-style: none;
     justify-content: space-around;
-
-
-
-
 }
 
 .Image{
     width: 120%;
+    border : 5px  inset navy;
+    margin-bottom: 1rem;
+    background-color: black;
+    border-radius: 1rem;
+}
+
+.avatar {
+    border-radius: 1rem;
 }
 

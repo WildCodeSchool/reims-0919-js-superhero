@@ -14,16 +14,23 @@ class Card extends React.Component{
                         {contactCard.name}
                     </h2>
                     <h3 className = 'Power'>
-                       POWER:<br/>  {contactCard.powerstats.power}
+                       POWER:<br/>
+                       <img src='https://cdn2.iconfinder.com/data/icons/superhero-neon-circle/64/10-superhero-512.png' /><br/>  
+                       {contactCard.powerstats.power}
                     </h3>
                 </div>
                 <div className = 'Middle'>
                     <aside className = 'Attributs'>
                         <ul>
-                        <li>intelligence:<br/> {contactCard.powerstats.intelligence}</li>
-                        <li>strength:<br/> {contactCard.powerstats.strength}</li>
-                        <li>speed:<br/> {contactCard.powerstats.speed}</li>
-                        <li>durability:<br/>{contactCard.powerstats.durability}</li>
+                          <li>intelligence:<br/>< img src = "https://cdn2.iconfinder.com/data/icons/miscellaneous-31/60/android-brain-512.png"/><br/> 
+                          {contactCard.powerstats.intelligence}</li>
+                          <li>strength:<br/>< img src = "https://cdn1.iconfinder.com/data/icons/fitness-icon-collection/100/dumbbell-512.png"/><br/> 
+                          {contactCard.powerstats.strength}</li>
+                          <li>speed:<br/> < img src = "https://cdn1.iconfinder.com/data/icons/line-free/24/Forward_sign-512.png"/><br/>
+                          {contactCard.powerstats.speed}</li>
+                          <li>durability:<br/>
+                          < img src = "https://cdn2.iconfinder.com/data/icons/lawyer-set-square/220/advokat_set-40-512.png"/><br/>
+                          {contactCard.powerstats.durability}</li>
                         </ul>
                     </aside>
                     <div className = 'Image'>
