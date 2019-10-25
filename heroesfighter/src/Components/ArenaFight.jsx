@@ -1,13 +1,13 @@
 import React from 'react';
 import './ArenaFight.css';
-import Card from './Card';
+import Card from './Card.jsx';
 
 class ArenaFight extends React.Component {
   render() {
     return (
       <div className="arena_box">
         <div className="card_versus">
-          <Card />
+          <Card className="Card" />
           <p className="versus_text">VS</p>
           <Card />
         </div>

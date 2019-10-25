@@ -1,10 +1,8 @@
 import React from 'react';
-import contactCard from './ContactCard';
-import './card.css'
+import contactCard from './ContactCard.jsx';
+import './Card.css'
 
 class Card extends React.Component{
-    
-
     render () {
         
         return(

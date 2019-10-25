@@ -6,7 +6,6 @@
 
 .Cards{
     width:600px;
-
     height: 900px;
     border: 2px solid black;
     display: flex flex-start;
@@ -24,9 +23,7 @@
     justify-content: space-between;
     width: 90%;
     align-items: center;
-
     height: 15%;
-    background-image: url('https://image.flaticon.com/icons/png/512/94/94085.png');
 } 
 .Name {
     display: flex;
@@ -63,7 +60,4 @@
 .Image{
     width: 120%;
 }
-.MyLife{
 
-
-}
