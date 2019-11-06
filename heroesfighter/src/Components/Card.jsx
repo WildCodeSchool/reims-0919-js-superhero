@@ -2,9 +2,6 @@ import React from 'react';
 import './Card.css'
 
 function Card ({ items }) {
-  
-  // let id = 19
-  console.log(items)
 
   return(    
       <div className = 'Cards'>      

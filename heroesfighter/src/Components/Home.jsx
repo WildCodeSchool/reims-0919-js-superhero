@@ -8,6 +8,8 @@ class Home extends React.Component {
     this.state = ({
       items : []
     })
+    this.getRandom = this.getRandom.bind(this)
+    this.getFiltered = this.getFiltered.bind(this)
   }
 
   getSuperHero(i = 1) {
@@ -28,21 +30,27 @@ class Home extends React.Component {
     this.getSuperHero()
   }
 
-  getResult() {
-    
+  getRandom() {
+    const randomId = Math.floor(Math.random() * 8 + 1);
+    return randomId
   }
 
+  getFiltered() {
+    const filterItems = this.state.items.filter(hero => hero.powerstats.intelligence !== "null")
+    return filterItems
+  }
+
+  otherRandom() {
+    let randomId2 = 1
+    do {
+      randomId2 = Math.floor(Math.random() * 8 + 1);
+    } while (this.getRandom() === randomId2)
+    return randomId2
+  }
 
   render() {
 
     const { items } = this.state;
-    const filterItems = items.filter(hero => hero.powerstats.intelligence !== "null")
-
-    const randomId = Math.floor(Math.random() * Math.floor(8) + 1);
-    let randomId2 = 1
-    do {
-      randomId2 = Math.floor(Math.random() * Math.floor(8) + 1);
-    } while (randomId === randomId2)
 
     if ( !items[9] ) {
       return (
@@ -59,9 +67,10 @@ class Home extends React.Component {
         </div>
       )
     } else {
+      console.log(this.otherRandom())
       return (
         <div className='home'>
-          <ArenaFight items={filterItems[randomId]} items2={filterItems[randomId2]} />
+          <ArenaFight items={this.getFiltered()[this.getRandom()]} items2={this.getFiltered()[this.otherRandom()]} />
         </div>
       )
     }
