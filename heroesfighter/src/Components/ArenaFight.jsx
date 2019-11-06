@@ -2,13 +2,14 @@ import React from 'react';
 import './ArenaFight.css';
 import Card from './Card.jsx';
 
-function ArenaFight () {
+function ArenaFight ({ items, items2 }) {
+
   return (
     <div className="arena_box">
       <div className="card_versus">
-        <Card className="Card" />
+        <Card items={items} />
         <p className="versus_text">VS</p>
-        <Card />
+        <Card items={items2} />
       </div>
       <div className="button_box">
         <button className="bonusButtonLightning" aria-label="Save" type="button" />
