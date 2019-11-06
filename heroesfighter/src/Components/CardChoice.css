@@ -1,0 +1,23 @@
+.CardChoiceBackground {
+    background-image: url('https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/624430/fde107b7a2a7d1d2a5469c3121c28fe1b55aa8ce.jpg');
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100vh;
+
+}
+.CardChoiceTitle {
+    color: white;
+}
+
+.CardChoiceBox {
+    
+    justify-content: space-evenly;
+    
+    display: flex;
+}
+.CardChoiceReadyButton {
+    font-size: 1.5em;
+    padding: 0.5%;
+    background: #f63d05de;
+}

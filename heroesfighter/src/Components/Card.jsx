@@ -24,7 +24,7 @@ function Card () {
               <aside className = 'Attributs'>
                   <ul>
                     <li>
-                      intelligence
+                      intel
                       <br/>
                       <img src = "https://cdn2.iconfinder.com/data/icons/miscellaneous-31/60/android-brain-512.png" alt = 'Inteligence_Logo' />
                       <br/> 
@@ -45,7 +45,7 @@ function Card () {
                       {contactCard.powerstats.speed}
                     </li>
                     <li>
-                      durability
+                      dura
                       <br/>
                       <img src = "https://cdn2.iconfinder.com/data/icons/lawyer-set-square/220/advokat_set-40-512.png" alt = 'Durability_Logo' />
                       <br/>
