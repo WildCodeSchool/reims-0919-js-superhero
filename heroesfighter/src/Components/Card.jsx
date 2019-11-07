@@ -6,20 +6,46 @@ function Card ({ items }) {
   // let id = 19
   console.log(items)
 
-  return(    
+  let className = 'PowerLogo';
+  if (items.powerstats.power < 20 ) {
+    className = 'PowerLogoOff';
+  }
+  let className2 = 'PowerLogo';
+  if (items.powerstats.power < 40) {
+    className2 = 'PowerLogoOff';
+  }
+  let className3 = 'PowerLogo';
+  if (items.powerstats.power < 60) {
+    className3 = 'PowerLogoOff';
+  }
+  let className4 = 'PowerLogo';
+  if (items.powerstats.power < 80) {
+    className4 = 'PowerLogoOff';
+  }
+  let className5 = 'PowerLogo';
+  if (items.powerstats.power < 100) {
+    className5 = 'PowerLogoOff';
+  }
+  
+
+  
+  return(   
+      
       <div className = 'Cards'>      
           <div className = 'Header'>
               <h2 className = 'Name'>
                   {items.name}
               </h2>
               <h3 className = 'Power'>
-                  <p>
-                    <span>POWER</span>
-                  </p>
-                  <figure>
-                    <img src='https://cdn2.iconfinder.com/data/icons/superhero-neon-circle/64/10-superhero-512.png' alt = 'Power_Logo' />
+                  
+                  <figure className = 'BoxPowerLogo'>
+                    <img className = {className} src= 'https://zupimages.net/up/19/45/9taf.png' alt = 'Power_Logo' />
+                    <img className = {className2} src= 'https://zupimages.net/up/19/45/9taf.png' alt = 'Power_Logo' />
+                    <img className = {className3} src= 'https://zupimages.net/up/19/45/9taf.png' alt = 'Power_Logo' />
+                    <img className = {className4} src= 'https://zupimages.net/up/19/45/9taf.png' alt = 'Power_Logo' />
+                    <img className = {className5} src= 'https://zupimages.net/up/19/45/9taf.png' alt = 'Power_Logo' />
+
                   </figure> 
-                  {items.powerstats.power}
               </h3>
           </div>
           <div className = 'Middle'>
@@ -47,7 +73,7 @@ function Card ({ items }) {
                       {items.powerstats.speed}
                     </li>
                     <li>
-                      dura
+                      vita
                       <br/>
                       <img src = "https://cdn2.iconfinder.com/data/icons/lawyer-set-square/220/advokat_set-40-512.png" alt = 'Durability_Logo' />
                       <br/>
@@ -62,8 +88,8 @@ function Card ({ items }) {
               </div>
           </div>
           <div className = 'MyLife'>
-              <h3>Who i am?</h3>
-              <p>{items.work.occupation.replace("-", " ")}</p>
+
+              <p>{items.work.occupation.replace("-", `Just ${items.name}`)}</p>
           </div>
       </div>
   )

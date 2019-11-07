@@ -39,10 +39,10 @@ class Home extends React.Component {
     const { items } = this.state;
     const filterItems = items.filter(hero => hero.powerstats.intelligence !== "null")
 
-    const randomId = Math.floor(Math.random() * Math.floor(8) + 1);
+    const randomId = Math.floor(Math.random() * Math.floor(5));
     let randomId2 = 1
     do {
-      randomId2 = Math.floor(Math.random() * Math.floor(8) + 1);
+      randomId2 = Math.floor(Math.random() * Math.floor(5));
     } while (randomId === randomId2)
 
     if ( !items[9] ) {
