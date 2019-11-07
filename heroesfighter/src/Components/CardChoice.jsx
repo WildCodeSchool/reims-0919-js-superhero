@@ -23,6 +23,12 @@ class CardChoice extends Component {
         this.setState({selectedCard : cardName})
 
     }
+
+    opacity (cardName) {
+        return {
+            opacity : this.state.selectedCard === '' || this.state.selectedCard === cardName ? 1 : 0.2
+        }
+    }
     
     render(){
         return(
@@ -30,23 +36,28 @@ class CardChoice extends Component {
                 <h1 className = 'CardChoiceTitle'>CHOOSE YOUR HERO</h1>
                 <div className = 'CardChoiceBox'> 
                     
-                    <div className = {this.state.selectedCard === 'choose1' ? 'Choosed1' :'notChoosed1'} onClick = {() => 
-                       this.handleCardSelection('choose1')
-                     
-                    } >
+                    <div 
+                        className = {this.state.selectedCard === 'choose1' ? 'Choosed1' :'notChoosed1'} 
+                        onClick = {() => this.handleCardSelection('choose1')}
+                        style = {this.opacity('choose1')} 
+                    >
 
                         <Card />
                     
                     </div>
-                    <div className = {this.state.selectedCard === 'choose2' ? 'Choosed2' :'notChoosed2'} onClick = { ()=> 
-                        this.handleCardSelection('choose2')
-                    }>
+                    <div
+                        className = {this.state.selectedCard === 'choose2' ? 'Choosed2' :'notChoosed2'} 
+                        onClick = { ()=>  this.handleCardSelection('choose2')}
+                        style = {this.opacity('choose2')}
+                    >
                         <Card />
                     </div>
                     
-                    <div className = {this.state.selectedCard === 'choose3' ? 'Choosed3' :'notChoosed3'} onClick = { ()=> 
-                        this.handleCardSelection('choose3')
-                    }>
+                    <div 
+                        className = {this.state.selectedCard === 'choose3' ? 'Choosed3' :'notChoosed3'} 
+                        onClick = { ()=> this.handleCardSelection('choose3')}
+                        style = {this.opacity('choose3')} 
+                    >
                         <Card />
                     </div>
                     
