@@ -1,12 +1,14 @@
 import React from 'react';
-import './Home.css'
+import './Pageaccueil.css'
 
-class Home extends React.Component {
+class Pageaccueil extends React.Component {
+
     render () {
+        const title = "Heroes fighter";
         return (
             <div className="container"> 
                 <div className="title">
-                    <p> Heroes fighter </p>
+                <h1>{title}</h1>
                 </div>
                 <div className="button">
                     <button className="buttonacces">ENTER !</button>
@@ -19,4 +21,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+export default Pageaccueil;
