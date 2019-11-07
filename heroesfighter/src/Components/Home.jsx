@@ -13,6 +13,7 @@ class Home extends React.Component {
     })
     this.handleCardSelection = this.handleCardSelection.bind(this)
     this.getResult= this.getResult.bind(this)
+    this.opacity = this.opacity.bind(this)
   }
 
   getSuperHero(i = 1) {
@@ -67,6 +68,12 @@ class Home extends React.Component {
     this.setState({selectedCard : cardName})
   }
 
+  opacity (cardName) {
+    return {
+      opacity : this.state.selectedCard === '' || this.state.selectedCard === cardName ? 1 : 0.2
+    }
+  }
+
   render() {
 
     const { items, selectedCard } = this.state;
@@ -88,7 +95,7 @@ class Home extends React.Component {
     } else {
       return (
         <div className='home'>
-          <CardChoice items={items[0]} items2={items[1]} items3={items[2]} handleCardSelection={this.handleCardSelection} selectedCard={selectedCard} />
+          <CardChoice items={items[0]} items2={items[1]} items3={items[2]} handleCardSelection={this.handleCardSelection} selectedCard={selectedCard} opacity={this.opacity} />
           <ArenaFight items={items[0]} items2={items[1]} getResult={this.getResult} />
         </div>
       )
