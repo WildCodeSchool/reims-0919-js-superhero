@@ -1,0 +1,68 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    background-color:blue;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: fixed;
+}
+.title {
+    color: lightskyblue;
+    font-size: 30px;
+    padding: 18%;
+    text-shadow: 2px 4px 5px white;
+}
+
+.buttonacces {
+    font-size: 16px;
+    color: black;
+    background-color: cornflowerblue;
+    width: 30%;
+    
+    height: 40px;
+    border: solid 5px cornflowerblue; 
+    font-weight: bold;
+}
+
+
+/* Desktop */
+
+@media (min-width: 1000px) { 
+
+.title {
+    color: lightskyblue;
+    font-size: 40px;
+    padding: 18%;
+    text-shadow: 2px 4px 5px white;
+}
+.container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-image:url(https://zupimages.net/up/19/43/d71r.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: fixed;
+}
+.buttonacces {
+    font-size: 16px;
+    color: black;
+    background-color: lightskyblue;
+    width: 10%;
+    height: 40px;
+    border: solid 5px  lightskyblue;
+    font-weight: bold;
+    border-radius:12px;
+    box-shadow: 2px 2px 2px cornflowerblue;; 
+}
+}
+
+
