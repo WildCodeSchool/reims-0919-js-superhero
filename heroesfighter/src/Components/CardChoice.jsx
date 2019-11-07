@@ -3,7 +3,6 @@ import Card from './Card'
 import './CardChoice.css'
 
 
-
 function CardChoice( { items, items2 , items3 , selectedCard, handleCardSelection } ) {
 	return(
 		<div className = 'CardChoiceBackground'>
