@@ -2,7 +2,7 @@ import React from 'react';
 import './ArenaFight.css';
 import Card from './Card.jsx';
 
-function ArenaFight ({ items, items2 }) {
+function ArenaFight ({ items, items2, getResult }) {
 
   return (
     <div className="arena_box">
@@ -17,7 +17,7 @@ function ArenaFight ({ items, items2 }) {
         <button className="bonusButtonBook" aria-label="Save" type="button" />
       </div>
       <div className="fightButton_box">
-        <button className="fightButton" type="button">FIGHT</button>
+        <button className="fightButton" type="button" onClick={getResult} >FIGHT</button>
       </div>
     </div>
   );
