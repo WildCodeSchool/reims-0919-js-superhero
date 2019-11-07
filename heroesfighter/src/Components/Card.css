@@ -5,8 +5,6 @@
 
 
 .Cards{
-    width:600px;
-    height: 900px;
     padding: 1rem;
     border: 2px solid black;
     display: flex flex-start;
@@ -68,6 +66,8 @@
 }
 
 .Image{
+    margin-top: 20px;
+    margin-left: 10px;
     width: 120%;
     border : 5px  inset navy;
     margin-bottom: 1rem;
@@ -77,5 +77,6 @@
 
 .avatar {
     border-radius: 1rem;
+    width: 20em
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import ArenaFight from './ArenaFight';
 import './Home.css'
+import Main from './Main';
 
 class Home extends React.Component {
   constructor(props) {
