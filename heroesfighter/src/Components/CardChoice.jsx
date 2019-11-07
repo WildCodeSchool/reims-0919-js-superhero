@@ -19,7 +19,6 @@ class CardChoice extends Component {
 
     // }
     handleCardSelection(cardName){
-        console.log(cardName)
         this.setState({selectedCard : cardName})
 
     }
@@ -62,7 +61,7 @@ class CardChoice extends Component {
                     </div>
                     
                 </div>
-                <div>
+                <div style = {this.state.selectedCard === '' ? {opacity:0} : {opacity : 1} }>
                     <button className = 'CardChoiceReadyButton'>READY</button>
                 </div>
             </div>
