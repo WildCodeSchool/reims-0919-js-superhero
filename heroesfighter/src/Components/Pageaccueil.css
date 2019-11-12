@@ -27,8 +27,6 @@
     border: solid 5px cornflowerblue; 
     font-weight: bold;
 }
-
-
 /* Desktop */
 
 @media (min-width: 1000px) { 
@@ -61,7 +59,7 @@
     border: solid 5px  lightskyblue;
     font-weight: bold;
     border-radius:12px;
-    box-shadow: 2px 2px 2px cornflowerblue;; 
+box-shadow: 2px 2px 2px cornflowerblue;
 }
 }
 
