@@ -74,10 +74,32 @@
 }
 
 .fightButton{
-    width: 20%;
+    /* width: 20%;
     height: 35px;
     border-radius: 2%;
     background: #f63d05de;
-    font-size: 1.2em;
+    font-size: 1.2em; */
+    padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: rgb(194, 20, 20);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  
 }
+
+.fightButton:hover {background-color: #3e8e41}
+
+.fightButton:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+
 
