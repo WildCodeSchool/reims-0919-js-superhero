@@ -1,67 +1,92 @@
 import React from 'react';
-import contactCard from './ContactCard.jsx';
 import './Card.css'
 
-function Card () {
-  return(
+function Card ({ items }) {
+
+  let className = 'PowerLogo';
+  if (items.powerstats.power < 20 ) {
+    className = 'PowerLogoOff';
+  }
+  let className2 = 'PowerLogo';
+  if (items.powerstats.power < 40) {
+    className2 = 'PowerLogoOff';
+  }
+  let className3 = 'PowerLogo';
+  if (items.powerstats.power < 60) {
+    className3 = 'PowerLogoOff';
+  }
+  let className4 = 'PowerLogo';
+  if (items.powerstats.power < 80) {
+    className4 = 'PowerLogoOff';
+  }
+  let className5 = 'PowerLogo';
+  if (items.powerstats.power < 100) {
+    className5 = 'PowerLogoOff';
+  }
+  
+
+  
+  return(   
       
       <div className = 'Cards'>      
           <div className = 'Header'>
               <h2 className = 'Name'>
-                  {contactCard.name}
+                  {items.name}
               </h2>
               <h3 className = 'Power'>
-                  <p>
-                    <span>POWER</span>
-                  </p>
-                  <figure>
-                    <img src='https://cdn2.iconfinder.com/data/icons/superhero-neon-circle/64/10-superhero-512.png' alt = 'Power_Logo' />
+                  
+                  <figure className = 'BoxPowerLogo'>
+                    <img className = {className} src= 'https://zupimages.net/up/19/45/9taf.png' alt = 'Power_Logo' />
+                    <img className = {className2} src= 'https://zupimages.net/up/19/45/9taf.png' alt = 'Power_Logo' />
+                    <img className = {className3} src= 'https://zupimages.net/up/19/45/9taf.png' alt = 'Power_Logo' />
+                    <img className = {className4} src= 'https://zupimages.net/up/19/45/9taf.png' alt = 'Power_Logo' />
+                    <img className = {className5} src= 'https://zupimages.net/up/19/45/9taf.png' alt = 'Power_Logo' />
+
                   </figure> 
-                  {contactCard.powerstats.power}
               </h3>
           </div>
           <div className = 'Middle'>
               <aside className = 'Attributs'>
                   <ul>
                     <li>
-                      intelligence
+                      intel
                       <br/>
                       <img src = "https://cdn2.iconfinder.com/data/icons/miscellaneous-31/60/android-brain-512.png" alt = 'Inteligence_Logo' />
                       <br/> 
-                      {contactCard.powerstats.intelligence}
+                      {items.powerstats.intelligence}
                     </li>
                     <li>
                       strength
                       <br/>
                       <img src = "https://cdn1.iconfinder.com/data/icons/fitness-icon-collection/100/dumbbell-512.png" alt = 'Strength_Logo' />
                       <br/> 
-                      {contactCard.powerstats.strength}
+                      {items.powerstats.strength}
                     </li>
                     <li>
                       speed
                       <br/>
                       <img src = "https://cdn1.iconfinder.com/data/icons/line-free/24/Forward_sign-512.png" alt = 'Speed_Logo' />
                       <br/>
-                      {contactCard.powerstats.speed}
+                      {items.powerstats.speed}
                     </li>
                     <li>
-                      durability
+                      vita
                       <br/>
                       <img src = "https://cdn2.iconfinder.com/data/icons/lawyer-set-square/220/advokat_set-40-512.png" alt = 'Durability_Logo' />
                       <br/>
-                      {contactCard.powerstats.durability}
+                      {items.powerstats.durability}
                     </li>
                   </ul>
               </aside>
               <div className = 'Image'>
               <img className='avatar'
-                  src={contactCard.image.url}
-                  alt="nothing" />
+                  src={items.image.url}
+                  alt={items.name} />
               </div>
           </div>
           <div className = 'MyLife'>
-              <h3>Who i am?</h3>
-              <p>{contactCard.work.occupation}</p>
+
+              <p>{items.work.occupation.replace("-", `Just ${items.name}`)}</p>
           </div>
       </div>
   )

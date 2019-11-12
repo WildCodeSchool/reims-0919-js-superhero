@@ -5,8 +5,7 @@
 
 
 .Cards{
-    width:600px;
-    height: 900px;
+    width: 21em;
     padding: 1rem;
     border: 2px solid black;
     display: flex flex-start;
@@ -18,29 +17,34 @@
     box-shadow: 0 8px 16px 0;
     background-image: url('https://img.hebus.com/hebus_2005/11/12/preview/051112151134_99.jpg');
     color: navy;
+    background-size: cover;
 }
 .Header{
     display: flex;
-    justify-content: space-between;
-    width: 90%;
+    flex-direction:column ;
+    justify-content: center;
     align-items: center;
-    height: 15%;
+    height: 19%;
 } 
 .Name {
     display: flex;
     justify-content: center;
-    font-size: 3rem;
-    width: 75%;
+    font-size: 2.4rem;
+    width: 100%;
+    text-shadow: 1px 1px 3px purple;
 } 
 .Power{
+    font-size: 1.3em;
     width: 25%;
     display: flex;
+    align-items: center;
     flex-direction: column;
 }
 
 .Power img{
-    width:50px;
     margin: 0.5rem;
+    width: 2rem;
+    height: 2rem;
 }
 
 .Middle{
@@ -68,7 +72,9 @@
 }
 
 .Image{
-    width: 120%;
+    max-height: 22em;
+    margin-top: 20px;
+    margin-left: 10px;
     border : 5px  inset navy;
     margin-bottom: 1rem;
     background-color: black;
@@ -77,5 +83,21 @@
 
 .avatar {
     border-radius: 1rem;
+    max-width: 16em;
+    max-height: 22em;
+}
+.BoxPowerLogo {
+    display: flex;
+    justify-content: flex-start;
 }
 
+.PowerLogo {
+    display: block;
+    
+
+
+}
+
+.PowerLogoOff {
+    visibility: hidden;
+}
