@@ -9,7 +9,8 @@ class Home extends React.Component {
     this.state = ({
       items : [],
       selectedCard : '',
-      selectedHero : []
+      selectedHero : [],
+      chooseCard : []
     })
     this.handleCardSelection = this.handleCardSelection.bind(this)
     this.getResult= this.getResult.bind(this)
@@ -66,6 +67,13 @@ class Home extends React.Component {
 
   handleCardSelection(cardName){
     this.setState({selectedCard : cardName})
+    cardName === "choose1" 
+      ? this.setState({chooseCard: this.state.items[0]}) 
+      : cardName === "choose2" 
+      ? this.setState({chooseCard: this.state.items[1]}) 
+      : cardName === "choose3" 
+      ? this.setState({chooseCard: this.state.items[2]})
+      : this.setState({chooseCard: [] })
   }
 
   opacity (cardName) {
@@ -76,7 +84,7 @@ class Home extends React.Component {
 
   render() {
 
-    const { items, selectedCard } = this.state;
+    const { items, selectedCard, chooseCard } = this.state;
 
     if ( items.length !== 3 ) {
       return (
@@ -96,7 +104,7 @@ class Home extends React.Component {
       return (
         <div className='home'>
           <CardChoice items={items[0]} items2={items[1]} items3={items[2]} handleCardSelection={this.handleCardSelection} selectedCard={selectedCard} opacity={this.opacity} />
-          <ArenaFight items={items[0]} items2={items[1]} getResult={this.getResult} />
+          <ArenaFight items={chooseCard} items2={items[1]} getResult={this.getResult} />
         </div>
       )
     }

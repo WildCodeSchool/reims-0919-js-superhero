@@ -4,23 +4,23 @@ import './Card.css'
 function Card ({ items }) {
 
   let className = 'PowerLogo';
-  if (items.powerstats.power < 20 ) {
+  if (items.name && items.powerstats.power < 20 ) {
     className = 'PowerLogoOff';
   }
   let className2 = 'PowerLogo';
-  if (items.powerstats.power < 40) {
+  if (items.name && items.powerstats.power < 40) {
     className2 = 'PowerLogoOff';
   }
   let className3 = 'PowerLogo';
-  if (items.powerstats.power < 60) {
+  if (items.name && items.powerstats.power < 60) {
     className3 = 'PowerLogoOff';
   }
   let className4 = 'PowerLogo';
-  if (items.powerstats.power < 80) {
+  if (items.name && items.powerstats.power < 80) {
     className4 = 'PowerLogoOff';
   }
   let className5 = 'PowerLogo';
-  if (items.powerstats.power < 100) {
+  if (items.name && items.powerstats.power < 100) {
     className5 = 'PowerLogoOff';
   }
   
@@ -31,7 +31,7 @@ function Card ({ items }) {
       <div className = 'Cards'>      
           <div className = 'Header'>
               <h2 className = 'Name'>
-                  {items.name}
+                  {items.name && items.name}
               </h2>
               <h3 className = 'Power'>
                   
@@ -53,40 +53,40 @@ function Card ({ items }) {
                       <br/>
                       <img src = "https://cdn2.iconfinder.com/data/icons/miscellaneous-31/60/android-brain-512.png" alt = 'Inteligence_Logo' />
                       <br/> 
-                      {items.powerstats.intelligence}
+                      {items.name && items.powerstats.intelligence}
                     </li>
                     <li>
                       strength
                       <br/>
                       <img src = "https://cdn1.iconfinder.com/data/icons/fitness-icon-collection/100/dumbbell-512.png" alt = 'Strength_Logo' />
                       <br/> 
-                      {items.powerstats.strength}
+                      {items.name && items.powerstats.strength}
                     </li>
                     <li>
                       speed
                       <br/>
                       <img src = "https://cdn1.iconfinder.com/data/icons/line-free/24/Forward_sign-512.png" alt = 'Speed_Logo' />
                       <br/>
-                      {items.powerstats.speed}
+                      {items.name && items.powerstats.speed}
                     </li>
                     <li>
                       vita
                       <br/>
                       <img src = "https://cdn2.iconfinder.com/data/icons/lawyer-set-square/220/advokat_set-40-512.png" alt = 'Durability_Logo' />
                       <br/>
-                      {items.powerstats.durability}
+                      {items.name && items.powerstats.durability}
                     </li>
                   </ul>
               </aside>
               <div className = 'Image'>
               <img className='avatar'
-                  src={items.image.url}
-                  alt={items.name} />
+                  src={items.name && items.image.url}
+                  alt={items.name && items.name} />
               </div>
           </div>
           <div className = 'MyLife'>
 
-              <p>{items.work.occupation.replace("-", `Just ${items.name}`)}</p>
+              <p>{items.name && items.work.occupation.replace("-", `Just ${items.name && items.name}`)}</p>
           </div>
       </div>
   )
