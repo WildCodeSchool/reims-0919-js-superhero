@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from './Card'
 import './CardChoice.css'
-
+import { Link } from 'react-router-dom'
 
 function CardChoice( { items, items2 , items3 , selectedCard, handleCardSelection, opacity } ) {
 	return(
@@ -19,7 +19,7 @@ function CardChoice( { items, items2 , items3 , selectedCard, handleCardSelectio
 				</div>				
 			</div>
 			<div style = {selectedCard === '' ? {opacity:0} : {opacity : 1} }>
-				<button className = 'CardChoiceReadyButton'>READY</button>
+				<button className = 'CardChoiceReadyButton'><Link to = '/arena'>READY</Link></button>
 			</div>
 		</div>
 	)

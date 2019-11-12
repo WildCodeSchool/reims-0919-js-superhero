@@ -2,6 +2,9 @@ import React from 'react';
 import ArenaFight from './ArenaFight';
 import './Home.css';
 import CardChoice from './CardChoice';
+import { Switch, Route } from 'react-router-dom';
+import Main from './Main'
+
 
 class Home extends React.Component {
   constructor(props) {
@@ -9,7 +12,7 @@ class Home extends React.Component {
     this.state = ({
       items : [],
       selectedCard : '',
-      selectedHero : []
+      selectedHero : [],
     })
     this.handleCardSelection = this.handleCardSelection.bind(this)
     this.getResult= this.getResult.bind(this)
@@ -95,8 +98,13 @@ class Home extends React.Component {
     } else {
       return (
         <div className='home'>
-          <CardChoice items={items[0]} items2={items[1]} items3={items[2]} handleCardSelection={this.handleCardSelection} selectedCard={selectedCard} opacity={this.opacity} />
-          <ArenaFight items={items[0]} items2={items[1]} getResult={this.getResult} />
+          
+          <Switch>
+            <Route exact path = '/' component = {Main} /> 
+            <Route path = '/cardchoice' render = {() =><CardChoice items={items[0]} items2={items[1]} items3={items[2]} handleCardSelection={this.handleCardSelection} selectedCard={selectedCard} opacity={this.opacity}/>}/>
+            <Route path='/arena' render = {() =><ArenaFight items={items[0]} items2={items[1]} getResult={this.getResult}/>}/>
+          </Switch> 
+
         </div>
       )
     }
