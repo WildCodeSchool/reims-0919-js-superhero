@@ -10,11 +10,13 @@ class Home extends React.Component {
       items : [],
       selectedCard : '',
       selectedHero : [],
-      chooseCard : []
+      chooseCard : null,
+      opponent : null
     })
     this.handleCardSelection = this.handleCardSelection.bind(this)
     this.getResult= this.getResult.bind(this)
     this.opacity = this.opacity.bind(this)
+    this.getOpponent = this.getOpponent.bind(this)
   }
 
   getSuperHero(i = 1) {
@@ -36,7 +38,6 @@ class Home extends React.Component {
 
   componentDidMount () {
     this.getSuperHero()
-
   }
 
   // getFiltered() {
@@ -48,20 +49,39 @@ class Home extends React.Component {
   //   }
   // }
 
+  getOpponent (i = 1) {
+    
+    const randomId = Math.floor(Math.random() * 730 + 1);
+
+    fetch('https://www.superheroapi.com/api.php/157312608676119/' + randomId)
+            .then(res => res.json())
+            .then(json =>{
+                if (json.powerstats.intelligence !== "null"){
+                  this.setState({
+                    opponent : json,
+                  })
+                  i++
+                }
+                i < 2 && this.getOpponent(i)
+              })
+  }
+
+
   getResult() {
 
     const calcul = stats => {
-      const power = (stats.powerstats.power + (stats.powerstats.power * (stats.powerstats.intelligence / 100)) + (stats.powerstats.power * (stats.powerstats.speed / 100)) + stats.powerstats.durability + (stats.powerstats.power * (stats.powerstats.strength / 100)))
-      return power 
+      const power = parseInt(stats.powerstats.power)
+      return power
     }
 
-    console.log(calcul(this.state.items[0]))
-    console.log(calcul(this.state.items[1]))
+    console.log(calcul(this.state.chooseCard))
+    console.log(calcul(this.state.opponent))
 
-    if (calcul(this.state.items[0]) < calcul(this.state.items[1])) {
+    if (calcul(this.state.chooseCard) <= calcul(this.state.opponent)) {
       return console.log('You Loose !')      
-    } else if  (calcul(this.state.items[0]) > calcul(this.state.items[1])) {
-      return console.log('You WIN !')  
+    } else if  (calcul(this.state.chooseCard) > calcul(this.state.opponent)) {
+      this.getOpponent()
+      return console.log('You WIN !')
     }
   }
 
@@ -73,7 +93,7 @@ class Home extends React.Component {
       ? this.setState({chooseCard: this.state.items[1]}) 
       : cardName === "choose3" 
       ? this.setState({chooseCard: this.state.items[2]})
-      : this.setState({chooseCard: [] })
+      : this.setState({chooseCard: null })
   }
 
   opacity (cardName) {
@@ -84,7 +104,7 @@ class Home extends React.Component {
 
   render() {
 
-    const { items, selectedCard, chooseCard } = this.state;
+    const { items, selectedCard, chooseCard, opponent } = this.state;
 
     if ( items.length !== 3 ) {
       return (
@@ -103,14 +123,12 @@ class Home extends React.Component {
     } else {
       return (
         <div className='home'>
-          <CardChoice items={items[0]} items2={items[1]} items3={items[2]} handleCardSelection={this.handleCardSelection} selectedCard={selectedCard} opacity={this.opacity} />
-          <ArenaFight items={chooseCard} items2={items[1]} getResult={this.getResult} />
+          <CardChoice items={items[0]} items2={items[1]} items3={items[2]} handleCardSelection={this.handleCardSelection} selectedCard={selectedCard} opacity={this.opacity} getOpponent={this.getOpponent} />
+          <ArenaFight items={chooseCard} opponent={opponent} getResult={this.getResult} />
         </div>
       )
     }
   }
-
-
 }
 
 export default Home;

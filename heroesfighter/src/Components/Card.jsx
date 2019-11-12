@@ -4,34 +4,34 @@ import './Card.css'
 function Card ({ items }) {
 
   let className = 'PowerLogo';
-  if (items.name && items.powerstats.power < 20 ) {
-    className = 'PowerLogoOff';
-  }
   let className2 = 'PowerLogo';
-  if (items.name && items.powerstats.power < 40) {
-    className2 = 'PowerLogoOff';
-  }
   let className3 = 'PowerLogo';
-  if (items.name && items.powerstats.power < 60) {
-    className3 = 'PowerLogoOff';
-  }
   let className4 = 'PowerLogo';
-  if (items.name && items.powerstats.power < 80) {
-    className4 = 'PowerLogoOff';
-  }
   let className5 = 'PowerLogo';
-  if (items.name && items.powerstats.power < 100) {
-    className5 = 'PowerLogoOff';
+  if (items) {
+    if (items.name && parseInt(items.powerstats.power) < 20) {
+      className = 'PowerLogoOff';
+    }
+    if (items.name && parseInt(items.powerstats.power) < 40) {
+      className2 = 'PowerLogoOff';
+    }
+    if (items.name && parseInt(items.powerstats.power) < 60) {
+      className3 = 'PowerLogoOff';
+    }
+    if (items.name && parseInt(items.powerstats.power) < 80) {
+      className4 = 'PowerLogoOff';
+    }
+    if (items.name && parseInt(items.powerstats.power) < 100) {
+      className5 = 'PowerLogoOff';
+    }
   }
-  
-
   
   return(   
       
       <div className = 'Cards'>      
           <div className = 'Header'>
               <h2 className = 'Name'>
-                  {items.name && items.name}
+                  {items && items.name}
               </h2>
               <h3 className = 'Power'>
                   
@@ -53,40 +53,40 @@ function Card ({ items }) {
                       <br/>
                       <img src = "https://cdn2.iconfinder.com/data/icons/miscellaneous-31/60/android-brain-512.png" alt = 'Inteligence_Logo' />
                       <br/> 
-                      {items.name && items.powerstats.intelligence}
+                      {items && items.powerstats.intelligence}
                     </li>
                     <li>
                       strength
                       <br/>
                       <img src = "https://cdn1.iconfinder.com/data/icons/fitness-icon-collection/100/dumbbell-512.png" alt = 'Strength_Logo' />
                       <br/> 
-                      {items.name && items.powerstats.strength}
+                      {items && items.powerstats.strength}
                     </li>
                     <li>
                       speed
                       <br/>
                       <img src = "https://cdn1.iconfinder.com/data/icons/line-free/24/Forward_sign-512.png" alt = 'Speed_Logo' />
                       <br/>
-                      {items.name && items.powerstats.speed}
+                      {items && items.powerstats.speed}
                     </li>
                     <li>
                       vita
                       <br/>
                       <img src = "https://cdn2.iconfinder.com/data/icons/lawyer-set-square/220/advokat_set-40-512.png" alt = 'Durability_Logo' />
                       <br/>
-                      {items.name && items.powerstats.durability}
+                      {items && items.powerstats.durability}
                     </li>
                   </ul>
               </aside>
               <div className = 'Image'>
               <img className='avatar'
-                  src={items.name && items.image.url}
-                  alt={items.name && items.name} />
+                  src={items && items.image.url}
+                  alt={items && items.name} />
               </div>
           </div>
           <div className = 'MyLife'>
 
-              <p>{items.name && items.work.occupation.replace("-", `Just ${items.name && items.name}`)}</p>
+              <p>{items && items.work.occupation.replace("-", `Just ${items && items.name}`)}</p>
           </div>
       </div>
   )

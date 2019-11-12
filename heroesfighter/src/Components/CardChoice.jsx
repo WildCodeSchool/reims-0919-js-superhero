@@ -3,7 +3,7 @@ import Card from './Card'
 import './CardChoice.css'
 
 
-function CardChoice( { items, items2 , items3 , selectedCard, handleCardSelection, opacity } ) {
+function CardChoice( { items, items2 , items3 , selectedCard, handleCardSelection, opacity, getOpponent } ) {
 	return(
 		<div className = 'CardChoiceBackground'>
 			<h1 className = 'CardChoiceTitle'>CHOOSE YOUR HERO</h1>
@@ -19,7 +19,7 @@ function CardChoice( { items, items2 , items3 , selectedCard, handleCardSelectio
 				</div>				
 			</div>
 			<div style = {selectedCard === '' ? {opacity:0} : {opacity : 1} }>
-				<button className = 'CardChoiceReadyButton'>READY</button>
+				<button className = 'CardChoiceReadyButton' onClick={getOpponent} >READY</button>
 			</div>
 		</div>
 	)
