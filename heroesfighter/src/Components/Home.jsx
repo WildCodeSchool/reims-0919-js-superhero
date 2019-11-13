@@ -1,6 +1,5 @@
 import React from 'react';
 import ArenaFight from './ArenaFight';
-import './Home.css';
 import CardChoice from './CardChoice';
 
 class Home extends React.Component {
@@ -90,6 +89,7 @@ class Home extends React.Component {
         <div className='home'>
           <CardChoice items={items[0]} items2={items[1]} items3={items[2]} handleCardSelection={this.handleCardSelection} selectedCard={selectedCard} />
           <ArenaFight items={items[0]} items2={items[1]} getResult={this.getResult} />
+     
         </div>
       )
     }

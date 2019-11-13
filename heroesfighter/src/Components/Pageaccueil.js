@@ -1,5 +1,7 @@
 import React from 'react';
-import './Pageaccueil.css'
+import './Pageaccueil.css';
+
+
 
 function Pageaccueil() {
     return (
@@ -8,11 +10,13 @@ function Pageaccueil() {
             <h1>Heroes fighter</h1>
             </div>
             <div className="button">
-                <button className="buttonacces">ENTER !</button>
+                <button className="buttonacces"> Fight !</button>
+                <button className="buttonrule"> Rule </button>
             </div>
             <div className="logo">
                 <img src="fond.jpg" alt="" /> 
-            </div>                          
+            </div>
+
         </div>
     )
 }

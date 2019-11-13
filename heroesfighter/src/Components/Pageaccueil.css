@@ -16,21 +16,6 @@
     padding: 18%;
     text-shadow: 2px 4px 5px white;
 }
-
-.buttonacces {
-    font-size: 16px;
-    color: black;
-    background-color: cornflowerblue;
-    width: 30%;
-    
-    height: 40px;
-    border: solid 5px cornflowerblue; 
-    font-weight: bold;
-}
-/* Desktop */
-
-@media (min-width: 1000px) { 
-
 .title {
     color: lightskyblue;
     font-size: 40px;
@@ -59,8 +44,25 @@
     border: solid 5px  lightskyblue;
     font-weight: bold;
     border-radius:12px;
-box-shadow: 2px 2px 2px cornflowerblue;
-}
+    box-shadow: 2px 2px 2px cornflowerblue;
+    margin-left: 25%;
 }
 
-
+.buttonrule {
+    font-size: 16px;
+    color: black;
+    background-color: lightskyblue;
+    width: 10%;
+    height: 40px;
+    border: solid 5px  lightskyblue;
+    font-weight: bold;
+    border-radius:12px;
+    box-shadow: 2px 2px 2px cornflowerblue;
+    margin-right: 25%;
+}
+.button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom: 10%;
+}

@@ -1,13 +1,10 @@
 import React from 'react';
-import './App.css';
-import Home from './Components/Home';
-import Main from './Components/Main';
+import Pageaccueil from './Components/Pageaccueil';
 
 function App() {
   return (
     <div className="App">
-      <Main />
-      <Home />
+      <Pageaccueil />
     </div>
   );
 }
