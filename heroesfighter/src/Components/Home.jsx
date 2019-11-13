@@ -14,7 +14,9 @@ class Home extends React.Component {
       selectedCard : '',
       selectedHero : [],
       chooseCard : null,
-      opponent : null
+      opponent : null,
+      counter : 0,
+
     })
     this.handleCardSelection = this.handleCardSelection.bind(this)
     this.getResult= this.getResult.bind(this)
@@ -84,7 +86,9 @@ class Home extends React.Component {
       return console.log('You Loose !')      
     } else if  (calcul(this.state.chooseCard) > calcul(this.state.opponent)) {
       this.getOpponent()
+      this.setState({counter: this.state.counter +1})
       return console.log('You WIN !')
+      
     }
   }
 
@@ -131,7 +135,7 @@ class Home extends React.Component {
             <Route exact path = '/' component = {Pageaccueil} /> 
             <Route exact path = '/rules' component = {Rules} /> 
             <Route path = '/cardchoice' render = {() =><CardChoice itemschoice={items[0]} itemschoice2={items[1]} itemschoice3={items[2]} handleCardSelection={this.handleCardSelection} selectedCard={selectedCard} opacity={this.opacity} getOpponent={this.getOpponent} />}/>
-            <Route path='/arena' render = {() =><ArenaFight mycard={chooseCard} opponent={opponent} getResult={this.getResult} />}/>
+            <Route path='/arena' render = {() =><ArenaFight mycard={chooseCard} opponent={opponent} getResult={this.getResult} counter={this.state.counter} />}/>
           </Switch> 
           
         </div>
