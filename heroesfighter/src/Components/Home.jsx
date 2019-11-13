@@ -75,10 +75,10 @@ class Home extends React.Component {
     this.setState({ isSnackbarActive: true })
 
     if (calcul(this.state.chooseCard) <= calcul(this.state.opponent)) {
+      this.returnMainMenu()
       this.setState({
         textresult : 'You Lose !'
       })
-      this.returnMainMenu()
     } else if  (calcul(this.state.chooseCard) > calcul(this.state.opponent)) {
       this.getOpponent()
       return this.setState({
