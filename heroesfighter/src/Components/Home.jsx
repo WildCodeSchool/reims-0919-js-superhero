@@ -1,6 +1,5 @@
 import React from 'react';
 import ArenaFight from './ArenaFight';
-import './Home.css';
 import CardChoice from './CardChoice';
 import { Switch, Route } from 'react-router-dom';
 import Main from './Main'
