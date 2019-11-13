@@ -19,7 +19,7 @@ function ArenaFight ({ mycard, opponent, getResult, counter }) {
       <div className="fightButton_box">
          <p className = 'winCounter'>Win streak: {counter}</p>
         <button className="fightButton" type="button" onClick={getResult}>FIGHT</button>
-        <div className = 'element'></div>
+        <a href = 'https://giphy.com/gifs/ultimate-marvel-vs-capcom-3-Pko7woPRCtp04/fullscreen'><div className = 'element'></div></a>
       </div>
     </div>
   );
