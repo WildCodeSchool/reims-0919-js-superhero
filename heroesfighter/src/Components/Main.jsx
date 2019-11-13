@@ -1,5 +1,6 @@
 import React from 'react'
 import './Main.css'
+import { Link } from 'react-router-dom'
 
 function Main() {
 	return(
@@ -11,12 +12,11 @@ function Main() {
 					<img className = 'ImgCaptainAmerica' src="https://image.noelshack.com/fichiers/2019/45/3/1573057748-comic-captain-america-transparent-png-599277.png" alt=""/>
 				</div>
 				<div>
-					<button className = 'EnterButton'>ENTER</button>
+					<button className = 'EnterButton'><Link to = "/cardchoice">ENTER</Link></button>
 				</div>
 			</div>      
 		</div>
 	)
 }
 
-
-export default Main 
+export default Main;

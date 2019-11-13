@@ -6,6 +6,7 @@
 
 .Cards{
     width: 21em;
+    height: 35em;
     padding: 1rem;
     border: 2px solid black;
     display: flex flex-start;
