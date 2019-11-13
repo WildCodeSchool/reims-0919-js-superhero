@@ -123,8 +123,8 @@ class Home extends React.Component {
     } else {
       return (
         <div className='home'>
-          <CardChoice items={items[0]} items2={items[1]} items3={items[2]} handleCardSelection={this.handleCardSelection} selectedCard={selectedCard} opacity={this.opacity} getOpponent={this.getOpponent} />
-          <ArenaFight items={chooseCard} opponent={opponent} getResult={this.getResult} />
+          <CardChoice itemschoice={items[0]} itemschoice2={items[1]} itemschoice3={items[2]} handleCardSelection={this.handleCardSelection} selectedCard={selectedCard} opacity={this.opacity} getOpponent={this.getOpponent} />
+          <ArenaFight mycard={chooseCard} opponent={opponent} getResult={this.getResult} />
         </div>
       )
     }
