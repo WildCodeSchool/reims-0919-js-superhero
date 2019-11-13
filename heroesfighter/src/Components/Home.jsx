@@ -4,6 +4,7 @@ import CardChoice from './CardChoice';
 import { Switch, Route } from 'react-router-dom';
 import Pageaccueil from './Pageaccueil';
 import Rules from './Rules';
+import './Home.css';
 
 
 class Home extends React.Component {
@@ -14,12 +15,15 @@ class Home extends React.Component {
       selectedCard : '',
       selectedHero : [],
       chooseCard : null,
-      opponent : null
+      opponent : null,
+      isSnackbarActive: false,
+      returnbutton : false
     })
     this.handleCardSelection = this.handleCardSelection.bind(this)
     this.getResult= this.getResult.bind(this)
     this.opacity = this.opacity.bind(this)
     this.getOpponent = this.getOpponent.bind(this)
+    this.handleTimeoutSnackbar = this.handleTimeoutSnackbar.bind(this)
   }
 
   getSuperHero(i = 1) {
@@ -68,15 +72,29 @@ class Home extends React.Component {
       return power
     }
 
-    console.log(calcul(this.state.chooseCard))
-    console.log(calcul(this.state.opponent))
+    this.setState({ isSnackbarActive: true })
 
     if (calcul(this.state.chooseCard) <= calcul(this.state.opponent)) {
-      return console.log('You Lose !')      
+      this.setState({
+        textresult : 'You Lose !'
+      })
+      this.returnMainMenu()
     } else if  (calcul(this.state.chooseCard) > calcul(this.state.opponent)) {
       this.getOpponent()
-      return console.log('You WIN !')
+      return this.setState({
+        textresult : 'You Win !'
+      })
     }
+  }
+
+  handleTimeoutSnackbar() {
+    this.setState({ isSnackbarActive: false });
+  }
+
+  returnMainMenu() {
+    this.setState({
+      returnbutton : !this.state.returnbutton
+    })
   }
 
   handleCardSelection(cardName){
@@ -98,7 +116,7 @@ class Home extends React.Component {
 
   render() {
 
-    const { items, selectedCard, chooseCard, opponent } = this.state;
+    const { items, selectedCard, chooseCard, opponent, isSnackbarActive, textresult, returnbutton } = this.state;
 
     if ( items.length !== 3 ) {
       return (
@@ -122,7 +140,7 @@ class Home extends React.Component {
             <Route exact path = '/' component = {Pageaccueil} /> 
             <Route exact path = '/rules' component = {Rules} /> 
             <Route path = '/cardchoice' render = {() =><CardChoice itemschoice={items[0]} itemschoice2={items[1]} itemschoice3={items[2]} handleCardSelection={this.handleCardSelection} selectedCard={selectedCard} opacity={this.opacity} getOpponent={this.getOpponent} />}/>
-            <Route path='/arena' render = {() =><ArenaFight mycard={chooseCard} opponent={opponent} getResult={this.getResult} />}/>
+            <Route path='/arena' render = {() =><ArenaFight mycard={chooseCard} opponent={opponent} getResult={this.getResult} isSnackbarActive={isSnackbarActive} handleTimeoutSnackbar={this.handleTimeoutSnackbar} textresult={textresult} returnbutton={returnbutton} />}/>
           </Switch> 
           
         </div>

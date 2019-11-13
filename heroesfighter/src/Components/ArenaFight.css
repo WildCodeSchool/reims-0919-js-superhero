@@ -31,7 +31,6 @@
     display: flex;
     align-content: center;
     justify-content: center;
-    margin: 1%;
 }
 
 .bonusButtonLightning {
@@ -70,12 +69,12 @@
 }
 
 .fightButton_box{
-    margin-top: 2%;
+    margin: auto;
 }
 
 .fightButton{
-    padding: 15px 25px;
-    font-size: 24px;
+    padding: 10px 20px;
+    font-size: 22px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
@@ -85,7 +84,10 @@
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
-  
+}
+
+.fightButtonoff{
+    display: none;
 }
 
 .fightButton:hover {background-color: #3e8e41}
@@ -96,5 +98,22 @@
     transform: translateY(4px);
   }
 
+  .returnbutton {
+    padding: 10px 20px;
+    font-size: 22px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: rgb(194, 20, 20);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.returnbuttonoff {
+    display: none;
+}
 
 

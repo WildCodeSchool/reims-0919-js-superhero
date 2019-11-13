@@ -1,8 +1,10 @@
 import React from 'react';
 import './ArenaFight.css';
 import Card from './Card.jsx';
+import { Snackbar } from 'react-mdl';
+import { Link } from 'react-router-dom';
 
-function ArenaFight ({ mycard, opponent, getResult }) {
+function ArenaFight ({ mycard, opponent, getResult, isSnackbarActive, handleTimeoutSnackbar, textresult, returnbutton }) {
 
   return (
     <div className="arena_box">
@@ -17,7 +19,13 @@ function ArenaFight ({ mycard, opponent, getResult }) {
         <button className="bonusButtonBook" aria-label="Save" type="button" />
       </div>
       <div className="fightButton_box">
-        <button className="fightButton" type="button" onClick={getResult} >FIGHT</button>
+        <button className={returnbutton ? 'fightButtonoff' : 'fightButton'} type="button" onClick={getResult} >FIGHT</button>
+        <Snackbar
+          active={isSnackbarActive}
+          onTimeout={handleTimeoutSnackbar}>
+            {textresult}
+          </Snackbar>
+          <Link to='/' ><button className={returnbutton ? 'returnbutton' : 'returnbuttonoff'} >Return Home</button></Link>
       </div>
     </div>
   );

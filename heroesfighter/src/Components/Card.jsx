@@ -14,15 +14,15 @@ function Card ({ items }) {
               </h2>
               <h3 className = 'Power'>
                 <figure className = 'BoxPowerLogo'>
-                  {[20, 40, 60, 80, 100].filter((threshold) => parseInt(items.powerstats.power) < threshold).map(
-                    (_) => (
+                  {[0, 30, 50, 80, 100].filter((threshold) => parseInt(items.powerstats.power) >= threshold).map(
+                    (_, index) => (
                       <img
+                        key={index}
                         src='https://zupimages.net/up/19/45/9taf.png'
                         alt='Power_Logo'
                       />
                     )
                   )}
-
                 </figure>
               </h3>
             </div>
