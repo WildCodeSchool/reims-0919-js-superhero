@@ -43,15 +43,6 @@ class Home extends React.Component {
     this.getSuperHero()
   }
 
-  // getFiltered() {
-  //   for (let i = 1; i <= 3; i++) {
-  //     let randomHero = 0
-  //     do {
-  //       randomHero = Math.floor(Math.random() * this.state.items.length)
-  //     } while ( this.state.selectedHero.filter( selected => selected.name === this.state.items[randomHero].name).length !== 0)
-  //   }
-  // }
-
   getOpponent (i = 1) {
     
     const randomId = Math.floor(Math.random() * 730 + 1);
@@ -81,7 +72,7 @@ class Home extends React.Component {
     console.log(calcul(this.state.opponent))
 
     if (calcul(this.state.chooseCard) <= calcul(this.state.opponent)) {
-      return console.log('You Loose !')      
+      return console.log('You Lose !')      
     } else if  (calcul(this.state.chooseCard) > calcul(this.state.opponent)) {
       this.getOpponent()
       return console.log('You WIN !')

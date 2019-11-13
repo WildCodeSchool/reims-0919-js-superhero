@@ -28,11 +28,6 @@
     color: white;
 }
 .CardChoiceReadyButton {
-    /* width: 20%;
-    height: 35px;
-    border-radius: 2%;
-    background: #f63d05de;
-    font-size: 1.2em; */
     padding: 15px 25px;
     font-size: 24px;
     cursor: pointer;
