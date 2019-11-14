@@ -26,9 +26,6 @@ function ArenaFight ({ mycard, opponent, getResult, isSnackbarActive, handleTime
           active={isSnackbarActive}
           onTimeout={handleTimeoutSnackbar}>
             {textresult}
-            <>
-            <br />
-            </>
           </Snackbar>
           <Link to='/' ><button className={returnbutton ? 'returnbutton' : 'returnbuttonoff'} >Return Home</button></Link>
       </div>
