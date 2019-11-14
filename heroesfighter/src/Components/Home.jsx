@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import Pageaccueil from './Pageaccueil';
 import Rules from './Rules';
 import './Home.css';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 
 class Home extends React.Component {
@@ -137,13 +138,21 @@ class Home extends React.Component {
     } else {
       return (
         <div className='home'>
-          
-          <Switch>
-            <Route exact path = '/' component = {Pageaccueil} /> 
-            <Route exact path = '/rules' component = {Rules} /> 
-            <Route path = '/cardchoice' render = {() =><CardChoice itemschoice={items[0]} itemschoice2={items[1]} itemschoice3={items[2]} handleCardSelection={this.handleCardSelection} selectedCard={selectedCard} opacity={this.opacity} getOpponent={this.getOpponent} />}/>
-            <Route path='/arena' render = {() =><ArenaFight mycard={chooseCard} opponent={opponent} getResult={this.getResult} isSnackbarActive={isSnackbarActive} handleTimeoutSnackbar={this.handleTimeoutSnackbar} textresult={textresult} returnbutton={returnbutton} counter={counter} />}/>
-          </Switch> 
+          <Route render={({location}) => (<TransitionGroup>
+              <CSSTransition
+                key={location.key}
+                timeout={450}
+                classNames='fade'
+              >
+                <Switch location={location}>
+                  <Route exact path = '/' component = {Pageaccueil} /> 
+                  <Route exact path = '/rules' component = {Rules} /> 
+                  <Route path = '/cardchoice' render = {() =><CardChoice itemschoice={items[0]} itemschoice2={items[1]} itemschoice3={items[2]} handleCardSelection={this.handleCardSelection} selectedCard={selectedCard} opacity={this.opacity} getOpponent={this.getOpponent} />}/>
+                  <Route path='/arena' render = {() =><ArenaFight mycard={chooseCard} opponent={opponent} getResult={this.getResult} isSnackbarActive={isSnackbarActive} handleTimeoutSnackbar={this.handleTimeoutSnackbar} textresult={textresult} returnbutton={returnbutton} counter={counter} />}/>
+                </Switch> 
+              </CSSTransition>
+            </TransitionGroup>
+          )}/>
           
         </div>
       )
