@@ -50,8 +50,12 @@
 
 .Middle{
     display: flex;
+    height: 68%;
+}
 
-
+.MyLife {
+    height: 13%;
+    margin-top: 0.9rem;
 }
 
 .Attributs{
@@ -97,7 +101,7 @@
 }
 
 .MyLife p {
-    font-size: 1vw;
+    font-size: 88%;
     line-height: 16px;
     margin-bottom: 0;
 }

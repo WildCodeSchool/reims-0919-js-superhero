@@ -31,6 +31,7 @@
     display: flex;
     align-content: center;
     justify-content: center;
+    visibility: hidden;
 }
 
 .bonusButtonLightning {
@@ -116,4 +117,7 @@
     display: none;
 }
 
-
+.mdl-snackbar {
+    height: 70px !important;
+    font-size: 2rem !important;
+}
