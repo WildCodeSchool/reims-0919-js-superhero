@@ -61,7 +61,7 @@ class Home extends React.Component {
                   })
                   i++
                 }
-                i < 2 && this.getOpponent(i)
+                i < 3 && this.getOpponent(i)
               })
   }
 

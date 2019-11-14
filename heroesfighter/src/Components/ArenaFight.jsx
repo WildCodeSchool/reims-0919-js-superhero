@@ -21,7 +21,7 @@ function ArenaFight ({ mycard, opponent, getResult, isSnackbarActive, handleTime
       <div className="fightButton_box">
         <p className = 'winCounter'>Win streak: {counter}</p>
         <button className={returnbutton ? 'fightButtonoff' : 'fightButton'} type="button" onClick={getResult} >FIGHT</button>
-        <a href = 'https://giphy.com/gifs/ultimate-marvel-vs-capcom-3-Pko7woPRCtp04/fullscreen'><div className = 'element'></div></a>
+        <a target='_blank' href = 'https://i.ibb.co/fthzXC4/etienne.png' rel='noopener noreferrer'><div className = 'element'></div></a>
         <Snackbar
           active={isSnackbarActive}
           onTimeout={handleTimeoutSnackbar}>
