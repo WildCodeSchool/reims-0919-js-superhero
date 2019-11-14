@@ -4,7 +4,7 @@ import Card from './Card.jsx';
 import { Snackbar } from 'react-mdl';
 import { Link } from 'react-router-dom';
 
-function ArenaFight ({ mycard, opponent, getResult, isSnackbarActive, handleTimeoutSnackbar, textresult, returnbutton }) {
+function ArenaFight ({ mycard, opponent, getResult, isSnackbarActive, handleTimeoutSnackbar, textresult, returnbutton, counter }) {
 
   return (
     <div className="arena_box">
@@ -19,7 +19,9 @@ function ArenaFight ({ mycard, opponent, getResult, isSnackbarActive, handleTime
         <button className="bonusButtonBook" aria-label="Save" type="button" />
       </div>
       <div className="fightButton_box">
+        <p className = 'winCounter'>Win streak: {counter}</p>
         <button className={returnbutton ? 'fightButtonoff' : 'fightButton'} type="button" onClick={getResult} >FIGHT</button>
+        <a href = 'https://giphy.com/gifs/ultimate-marvel-vs-capcom-3-Pko7woPRCtp04/fullscreen'><div className = 'element'></div></a>
         <Snackbar
           active={isSnackbarActive}
           onTimeout={handleTimeoutSnackbar}>

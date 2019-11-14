@@ -70,7 +70,9 @@
 }
 
 .fightButton_box{
-    margin: auto;
+    display: flex;
+    justify-content:center;
+    align-items: baseline;
 }
 
 .fightButton{
@@ -85,10 +87,15 @@
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
+    margin: 0 40rem;
 }
 
 .fightButtonoff{
-    display: none;
+    display: none !important;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    display: flex;
+    justify-content:space-around;
 }
 
 .fightButton:hover {background-color: #3e8e41}
@@ -99,18 +106,33 @@
     transform: translateY(4px);
   }
 
-  .returnbutton {
+.returnbutton {
+    padding: 10px 20px;
+    font-size: 22px;
+    background:linear-gradient(90deg, #005c97 0%,#363795 100% );
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.winCounter {
     padding: 10px 20px;
     font-size: 22px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
     outline: none;
-    color: #fff;
-    background-color: rgb(194, 20, 20);
+    color: navy;
+    background-image: url('https://img.hebus.com/hebus_2005/11/12/preview/051112151134_99.jpg');
+    background-size: cover;
     border: none;
     border-radius: 15px;
-    box-shadow: 0 9px #999;
+    box-shadow: 0 9px navy;
+}
+
+.element {
+    width: 168.39px;
+    height: 44px;
 }
 
 .returnbuttonoff {

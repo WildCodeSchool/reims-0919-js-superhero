@@ -17,7 +17,8 @@ class Home extends React.Component {
       chooseCard : null,
       opponent : null,
       isSnackbarActive: false,
-      returnbutton : false
+      returnbutton : false,
+      counter : 0
     })
     this.handleCardSelection = this.handleCardSelection.bind(this)
     this.getResult= this.getResult.bind(this)
@@ -82,7 +83,8 @@ class Home extends React.Component {
     } else if  (calcul(this.state.chooseCard) > calcul(this.state.opponent)) {
       this.getOpponent()
       return this.setState({
-        textresult : 'You Win !'
+        textresult : 'You Win !',
+        counter: this.state.counter +1
       })
     }
   }
@@ -116,7 +118,7 @@ class Home extends React.Component {
 
   render() {
 
-    const { items, selectedCard, chooseCard, opponent, isSnackbarActive, textresult, returnbutton } = this.state;
+    const { items, selectedCard, chooseCard, opponent, isSnackbarActive, textresult, returnbutton, counter } = this.state;
 
     if ( items.length !== 3 ) {
       return (
@@ -140,7 +142,7 @@ class Home extends React.Component {
             <Route exact path = '/' component = {Pageaccueil} /> 
             <Route exact path = '/rules' component = {Rules} /> 
             <Route path = '/cardchoice' render = {() =><CardChoice itemschoice={items[0]} itemschoice2={items[1]} itemschoice3={items[2]} handleCardSelection={this.handleCardSelection} selectedCard={selectedCard} opacity={this.opacity} getOpponent={this.getOpponent} />}/>
-            <Route path='/arena' render = {() =><ArenaFight mycard={chooseCard} opponent={opponent} getResult={this.getResult} isSnackbarActive={isSnackbarActive} handleTimeoutSnackbar={this.handleTimeoutSnackbar} textresult={textresult} returnbutton={returnbutton} />}/>
+            <Route path='/arena' render = {() =><ArenaFight mycard={chooseCard} opponent={opponent} getResult={this.getResult} isSnackbarActive={isSnackbarActive} handleTimeoutSnackbar={this.handleTimeoutSnackbar} textresult={textresult} returnbutton={returnbutton} counter={counter} />}/>
           </Switch> 
           
         </div>
