@@ -12,9 +12,8 @@
     color: lightskyblue;
 }
 .rules{
-   height: 80vh;
+    height: 80vh;
     width: 50%;
-    font-size: 2rem ;
     margin-bottom: 0;
 }
 
@@ -31,4 +30,8 @@
     padding: 0.5rem;
     font-size: 2rem;
     border-radius: 1rem;
+}
+
+.rules p {
+    font-size: 2rem;
 }

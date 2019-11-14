@@ -9,6 +9,7 @@
 }
 .CardChoiceTitle {
     color: white;
+    margin: 0.5rem;
 }
 
 .CardChoiceBox {
@@ -28,8 +29,8 @@
     color: white;
 }
 .CardChoiceReadyButton {
-    padding: 15px 25px;
-    font-size: 24px;
+    padding: 10px 20px;
+    font-size: 22px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
@@ -39,6 +40,7 @@
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
+    margin-bottom: 0.8rem;
   
 }
 
