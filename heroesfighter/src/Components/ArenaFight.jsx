@@ -1,11 +1,12 @@
 import React from 'react';
 import './ArenaFight.css';
 import Card from './Card.jsx';
+import { tsPropertySignature } from '@babel/types';
 
-function ArenaFight ({ mycard, opponent, getResult }) {
+function ArenaFight ({ mycard, opponent, getResult,arene,getArena }) {
 
   return (
-    <div className="arena_box">
+    <div className="arena_box" style ={{ background:`url(${arene[getArena()]})`}}>
       <div className="card_versus">
         <Card items={mycard} />
         <p className="versus_text">VS</p>

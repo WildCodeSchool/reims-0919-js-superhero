@@ -14,15 +14,21 @@ class Home extends React.Component {
       selectedCard : '',
       selectedHero : [],
       chooseCard : null,
-      opponent : null
+      opponent : null,
+      arene:['https://image.noelshack.com/fichiers/2019/43/4/1571903698-anime-street-scenic-buildings-bicycle-cars-road-clouds-anime-6573.jpg','https://resize-parismatch.lanmedia.fr/r/901,,forcex/img/var/news/storage/images/paris-match/actu/sport/la-ceremonie-d-ouverture-en-direct-et-en-images-1456046/rtx4ti7w/23927390-1-fre-FR/RTX4TI7W.jpg','https://i.pinimg.com/originals/e6/4d/81/e64d8126faaecd40d8961348b1967190.jpg','https://img.elo7.com.br/product/zoom/1CAA62C/painel-gravity-falls-2-00x1-50-desenho-disney.jpg','https://i.pinimg.com/originals/5c/d6/ba/5cd6bacfc547f89a6b3b7c8d1dc557ab.jpg'],
     })
     this.handleCardSelection = this.handleCardSelection.bind(this)
     this.getResult= this.getResult.bind(this)
     this.opacity = this.opacity.bind(this)
     this.getOpponent = this.getOpponent.bind(this)
+    this.getArena = this.getArena.bind(this)
+  }
+  getArena (){
+    return  Math.floor(Math.random()*this.state.arene.length )
   }
 
-  getSuperHero(i = 1) {
+ 
+  getSuperHero(i = 1 ) {
 
     const randomId = Math.floor(Math.random() * 730 + 1);
 
@@ -107,7 +113,7 @@ class Home extends React.Component {
 
   render() {
 
-    const { items, selectedCard, chooseCard, opponent } = this.state;
+    const { items, selectedCard, chooseCard, opponent, arene } = this.state;
 
     if ( items.length !== 3 ) {
       return (
@@ -131,7 +137,7 @@ class Home extends React.Component {
             <Route exact path = '/' component = {Pageaccueil} /> 
             <Route exact path = '/rules' component = {Rules} /> 
             <Route path = '/cardchoice' render = {() =><CardChoice itemschoice={items[0]} itemschoice2={items[1]} itemschoice3={items[2]} handleCardSelection={this.handleCardSelection} selectedCard={selectedCard} opacity={this.opacity} getOpponent={this.getOpponent} />}/>
-            <Route path='/arena' render = {() =><ArenaFight mycard={chooseCard} opponent={opponent} getResult={this.getResult} />}/>
+            <Route path='/arena' render = {() =><ArenaFight getArena={this.getArena} mycard={chooseCard} opponent={opponent} getResult={this.getResult} arene={arene} />}/>
           </Switch> 
           
         </div>
