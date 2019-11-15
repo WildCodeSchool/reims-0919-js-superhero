@@ -19,16 +19,23 @@ class Home extends React.Component {
       opponent : null,
       isSnackbarActive: false,
       returnbutton : false,
-      counter : 0
+      counter : 0,
+      currentArena: null,
+      arene:['https://image.noelshack.com/fichiers/2019/43/4/1571903698-anime-street-scenic-buildings-bicycle-cars-road-clouds-anime-6573.jpg','https://resize-parismatch.lanmedia.fr/r/901,,forcex/img/var/news/storage/images/paris-match/actu/sport/la-ceremonie-d-ouverture-en-direct-et-en-images-1456046/rtx4ti7w/23927390-1-fre-FR/RTX4TI7W.jpg','https://i.pinimg.com/originals/e6/4d/81/e64d8126faaecd40d8961348b1967190.jpg','https://img.elo7.com.br/product/zoom/1CAA62C/painel-gravity-falls-2-00x1-50-desenho-disney.jpg','https://i.pinimg.com/originals/5c/d6/ba/5cd6bacfc547f89a6b3b7c8d1dc557ab.jpg'],
     })
     this.handleCardSelection = this.handleCardSelection.bind(this)
     this.getResult= this.getResult.bind(this)
     this.opacity = this.opacity.bind(this)
     this.getOpponent = this.getOpponent.bind(this)
     this.handleTimeoutSnackbar = this.handleTimeoutSnackbar.bind(this)
+    this.getNewArena = this.getNewArena.bind(this)
+  }
+  getNewArena (){
+    return this.state.arene[Math.floor(Math.random()*this.state.arene.length )]
   }
 
-  getSuperHero(i = 1) {
+ 
+  getSuperHero(i = 1 ) {
 
     const randomId = Math.floor(Math.random() * 730 + 1);
 
@@ -38,6 +45,7 @@ class Home extends React.Component {
                 if (json.powerstats.intelligence !== "null"){
                   this.setState({
                       items : [...this.state.items, json],
+                      returnbutton: false,
                   })
                   i++
                 }
@@ -49,21 +57,22 @@ class Home extends React.Component {
     this.getSuperHero()
   }
 
-  getOpponent (i = 1) {
+  getOpponent () {
     
-    const randomId = Math.floor(Math.random() * 730 + 1);
+    const randomId = 1 + Math.floor(Math.random() * 731)
 
     fetch('https://www.superheroapi.com/api.php/157312608676119/' + randomId)
-            .then(res => res.json())
-            .then(json =>{
-                if (json.powerstats.intelligence !== "null"){
-                  this.setState({
-                    opponent : json,
-                  })
-                  i++
-                }
-                i < 3 && this.getOpponent(i)
-              })
+      .then(res => res.json())
+      .then(json =>{
+        if (json.powerstats.intelligence !== "null"){
+          this.setState({
+            opponent : json,
+            currentArena: this.getNewArena()
+          })
+        } else {
+          this.getOpponent()
+        }
+      })
   }
 
 
@@ -74,19 +83,23 @@ class Home extends React.Component {
       return power
     }
 
-    this.setState({ isSnackbarActive: true })
+    const newState = {
+      isSnackbarActive: true,
+    }
 
     if (calcul(this.state.chooseCard) <= calcul(this.state.opponent)) {
       this.returnMainMenu()
       this.setState({
+        ...newState,
         textresult : 'You Lose !'
       })
     } else if  (calcul(this.state.chooseCard) > calcul(this.state.opponent)) {
-      this.getOpponent()
-      return this.setState({
+      this.setState({
+        ...newState,
         textresult : 'You Win !',
         counter: this.state.counter +1
       })
+      this.getOpponent()
     }
   }
 
@@ -119,7 +132,7 @@ class Home extends React.Component {
 
   render() {
 
-    const { items, selectedCard, chooseCard, opponent, isSnackbarActive, textresult, returnbutton, counter } = this.state;
+    const { items, selectedCard, chooseCard, opponent, isSnackbarActive, textresult, returnbutton, counter, currentArena } = this.state;
 
     if ( items.length !== 3 ) {
       return (
@@ -148,7 +161,7 @@ class Home extends React.Component {
                   <Route exact path = '/' component = {Pageaccueil} /> 
                   <Route exact path = '/rules' component = {Rules} /> 
                   <Route path = '/cardchoice' render = {() =><CardChoice itemschoice={items[0]} itemschoice2={items[1]} itemschoice3={items[2]} handleCardSelection={this.handleCardSelection} selectedCard={selectedCard} opacity={this.opacity} getOpponent={this.getOpponent} />}/>
-                  <Route path='/arena' render = {() =><ArenaFight mycard={chooseCard} opponent={opponent} getResult={this.getResult} isSnackbarActive={isSnackbarActive} handleTimeoutSnackbar={this.handleTimeoutSnackbar} textresult={textresult} returnbutton={returnbutton} counter={counter} />}/>
+                  <Route path='/arena' render = {() =><ArenaFight mycard={chooseCard} opponent={opponent} getResult={this.getResult} isSnackbarActive={isSnackbarActive} handleTimeoutSnackbar={this.handleTimeoutSnackbar} textresult={textresult} returnbutton={returnbutton} counter={counter} currentArena={currentArena} />}/>
                 </Switch> 
               </CSSTransition>
             </TransitionGroup>

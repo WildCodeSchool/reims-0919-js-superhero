@@ -7,7 +7,6 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    background-image: url('https://image.noelshack.com/fichiers/2019/43/4/1571903698-anime-street-scenic-buildings-bicycle-cars-road-clouds-anime-6573.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -87,7 +86,7 @@
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
-    margin: 0 40rem;
+    margin: 0 30%;
 }
 
 .fightButtonoff{

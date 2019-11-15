@@ -2,12 +2,11 @@ import React from 'react';
 import './ArenaFight.css';
 import Card from './Card.jsx';
 import { Snackbar } from 'react-mdl';
-import { Link } from 'react-router-dom';
 
-function ArenaFight ({ mycard, opponent, getResult, isSnackbarActive, handleTimeoutSnackbar, textresult, returnbutton, counter }) {
+function ArenaFight ({ mycard, opponent, getResult, isSnackbarActive, handleTimeoutSnackbar, textresult, returnbutton, counter,currentArena }) {
 
   return (
-    <div className="arena_box">
+    <div className="arena_box" style ={{ background:`url(${currentArena})`}}>
       <div className="card_versus">
         <Card items={mycard} />
         <p className="versus_text">VS</p>
@@ -27,7 +26,7 @@ function ArenaFight ({ mycard, opponent, getResult, isSnackbarActive, handleTime
           onTimeout={handleTimeoutSnackbar}>
             {textresult}
           </Snackbar>
-          <Link to='/' ><button className={returnbutton ? 'returnbutton' : 'returnbuttonoff'} >Return Home</button></Link>
+          <a href='/' ><button className={returnbutton ? 'returnbutton' : 'returnbuttonoff'} >Return Home</button></a>
       </div>
     </div>
   );
